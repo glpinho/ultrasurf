@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 2.8)
+project( Trabalho_3_Questao_2)
+find_package( OpenCV REQUIRED )
+add_executable( accountParticles main.cpp )
+target_link_libraries( accountParticles ${OpenCV_LIBS} )
