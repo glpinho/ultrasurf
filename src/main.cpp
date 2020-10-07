@@ -10,8 +10,8 @@
 #include <string>
 #include <glob.h>
 #include <iostream>
+#include "Particle.hpp"
 
-class Particle;
 struct cutParticleOutput;
 std::vector<std::string> globVector(const std::string &pattern);
 std::vector<Particle> getParticles(cv::Mat img);
@@ -89,37 +89,6 @@ std::vector<std::string> globVector(const std::string &pattern)
     globfree(&glob_result);
     return files;
 }
-
-class Particle
-{
-private:
-    std::array<float, 2> centroid; // [x, y]
-
-public:
-    cv::Mat image;
-    float perimeter;
-    int area;
-
-    void calculateCentroid(int x, int y)
-    {
-        cv::Mat img = this->image;
-        int sumr = 0, sumc = 0, counter = 0;
-        for (int r = 0; r < img.rows; r++)
-        {
-            for (int c = 0; c < img.cols; c++)
-            {
-                if (img.at<uchar>(c, r))
-                {
-                    sumr += r;
-                    sumc += c;
-                    counter++;
-                }
-            }
-        }
-        this->centroid = {(((float)sumc) / counter) + (float)x,
-                          (((float)sumr) / counter) + (float)y};
-    }
-};
 
 std::vector<Particle> getParticles(cv::Mat img)
 {
