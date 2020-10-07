@@ -11,9 +11,9 @@
 #include <glob.h>
 #include <iostream>
 #include "Particle.hpp"
+#include "globVector.hpp"
 
 struct cutParticleOutput;
-std::vector<std::string> globVector(const std::string &pattern);
 std::vector<Particle> getParticles(cv::Mat img);
 cutParticleOutput cutParticle(cv::Mat img, int lastRow);
 
@@ -75,19 +75,6 @@ int main(int argc, char **argv)
     // cout << "\n";
     // cout << t << "\n";
     // cout << t2 << "\n";
-}
-
-std::vector<std::string> globVector(const std::string &pattern)
-{
-    glob_t glob_result;
-    glob(pattern.c_str(), GLOB_TILDE, NULL, &glob_result);
-    std::vector<std::string> files;
-    for (unsigned int i = 0; i < glob_result.gl_pathc; ++i)
-    {
-        files.push_back(std::string(glob_result.gl_pathv[i]));
-    }
-    globfree(&glob_result);
-    return files;
 }
 
 std::vector<Particle> getParticles(cv::Mat img)
