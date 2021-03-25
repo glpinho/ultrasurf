@@ -19,3 +19,13 @@ void Particle::calculateCentroid(int x, int y)
     this->centroid = {(((float)sumc) / counter) + (float)x,
                       (((float)sumr) / counter) + (float)y};
 }
+
+int Particle::getX()
+{
+    return this->centroid[0];
+}
+
+int Particle::getY()
+{
+    return this->centroid[1];
+}

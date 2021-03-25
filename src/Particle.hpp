@@ -13,4 +13,8 @@ public:
     int area;
 
     void calculateCentroid(int x, int y);
+
+    int getX();
+
+    int getY();
 };
