@@ -6,3 +6,5 @@ FramesBin
 Images
 accountParticles
 .vscode
+src/lib/opencv_build
+src/lib/opencv_install
