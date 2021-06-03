@@ -3,13 +3,14 @@
 
 int main(int argc, char **argv)
 {
+
     using namespace cv;
     using namespace std;
 
-    if (!globVector("FramesBin/*").empty())
-        system("rm FramesBin/*");
+    if (!globVector("FramesBin").empty())
+        system("rm FramesBin");
 
-    vector<string> imlist = globVector("BWImages/*");
+    vector<string> imlist = globVector("BWImages");
 
     for (int i = 0; i < imlist.size(); i++)
     {
@@ -21,7 +22,6 @@ int main(int argc, char **argv)
         Mat img = imread(imlist[i], IMREAD_GRAYSCALE);
 
         vector<Particle> particles = getParticles(img);
-
         for (int j = 1; j < particles.size(); j++)
         {
             Particle particle = particles[j];
