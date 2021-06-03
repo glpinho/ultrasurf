@@ -5,7 +5,11 @@
 #include <vector>
 #include <array>
 #include <string>
-#include <glob.h>
+#ifdef __linux__
+	#include <dirent.h>
+#elif _WIN64
+	#include <Windows.h>
+#endif
 #include <iostream>
 #include "Particle.hpp"
 #include "globVector.hpp"

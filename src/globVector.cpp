@@ -23,7 +23,19 @@ std::vector<std::string> globVector(const std::string &pattern)
 
     #elif _WIN64
 
-        // windows code
+        WIN32_FIND_DATAA findData;
+        HANDLE hFind = INVALID_HANDLE_VALUE;
+        std::string full_path = pattern + "\\*";
+
+        hFind = FindFirstFileA(full_path.c_str(), &findData);
+
+        while (FindNextFileA(hFind, &findData) != 0)
+        {
+            if (findData.cFileName[0] == '.') continue;
+            files.push_back(std::string(findData.cFileName));
+        }
+
+        FindClose(hFind);
 
     #endif  
 

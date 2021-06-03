@@ -7,6 +7,13 @@ int main(int argc, char **argv)
     using namespace cv;
     using namespace std;
 
+    /*vector<string> files = globVector("Images");
+    for (int i = 0; i < files.size(); i++)
+    {
+        cout << files[i] << endl;
+    }*/
+
+    
     if (!globVector("FramesBin").empty())
         system("rm FramesBin");
 
@@ -33,6 +40,6 @@ int main(int argc, char **argv)
         }
         file.close();
     }
-
+    
     return 0;
 }

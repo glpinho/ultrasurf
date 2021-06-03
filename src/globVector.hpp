@@ -4,7 +4,7 @@
 #ifdef __linux__
     #include <dirent.h>
 #elif _WIN64
-    #include <windows.h
+    #include <Windows.h>
 #endif
 
 std::vector<std::string> globVector(const std::string &pattern);

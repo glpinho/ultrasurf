@@ -8,9 +8,7 @@ target_include_directories(${EXECUTABLE_NAME}
     PUBLIC lib/opencv_install/include
 )
 target_link_libraries(${EXECUTABLE_NAME}
-    ${PROJECT_SOURCE_DIR}/lib/opencv_install/lib/libopencv_core.so
-    ${PROJECT_SOURCE_DIR}/lib/opencv_install/lib/libopencv_imgcodecs.so
-    ${PROJECT_SOURCE_DIR}/lib/opencv_install/lib/libopencv_imgproc.so
+    ${PROJECT_SOURCE_DIR}/lib/opencv_install/opencv_world451.lib
 )
 
 
@@ -20,9 +18,7 @@ target_include_directories(UltraSurf
     PUBLIC lib/opencv_install/include/opencv4/
 )
 target_link_libraries(UltraSurf
-    ${PROJECT_SOURCE_DIR}/lib/opencv_install/lib/libopencv_core.so
-    ${PROJECT_SOURCE_DIR}/lib/opencv_install/lib/libopencv_imgcodecs.so
-    ${PROJECT_SOURCE_DIR}/lib/opencv_install/lib/libopencv_imgproc.so
+    ${PROJECT_SOURCE_DIR}/lib/opencv_install/opencv_world451.lib
 )
 
 
